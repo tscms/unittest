@@ -17,7 +17,7 @@ matrix:
 before_script:
   - composer self-update
   - composer install --no-interaction --prefer-dist
-  - if [ "$PHPUNIT_DEPENDENCY" = "lowest" ]; then composer require phpunit/phpunit:${PHPUNIT_VERSION} -n; fi;
+  - if [ "$PHPUNIT_DEPENDENCY" = "lowest" ]; then composer require phpunit/phpunit:${PHPUNIT_VERSION} --update-with-dependencies -n; fi;
   - vendor/bin/koharness
 
 script:
