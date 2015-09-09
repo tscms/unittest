@@ -13,7 +13,8 @@ matrix:
       env: 'COMPOSER_FLAGS="--prefer-lowest"'
 
 before_script:
-  - travis_retry composer install ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+  - travis_retry composer install --no-interaction --prefer-dist
+  - if [ "$COMPOSER_FLAGS" = "--prefer-lowest" ]; then composer update --prefer-lowest --with-dependencies phpunit/phpunit; fi;
   - vendor/bin/koharness
 
 script:
