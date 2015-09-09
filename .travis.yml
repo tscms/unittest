@@ -12,12 +12,12 @@ php:
 matrix:
   include:
     - php: 5.3
-      env: COMPOSER_DEPENDENCIES=lowest
+      env: PHPUNIT_DEPENDENCY=lowest PHPUNIT_VERSION=3.7.*
 
 before_script:
   - composer self-update
   - composer install --no-interaction --prefer-dist
-  - if [ "$COMPOSER_DEPENDENCIES" = "lowest" ]; then composer update --prefer-lowest --prefer-stable -n; fi;
+  - if [ "$PHPUNIT_DEPENDENCY" = "lowest" ]; then composer require phpunit/phpunit:${PHPUNIT_VERSION} -n; fi;
   - vendor/bin/koharness
 
 script:
