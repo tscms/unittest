@@ -12,11 +12,12 @@ php:
 matrix:
   include:
     - php: 5.3
-      env: 'COMPOSER_FLAGS="--prefer-lowest"'
+      env: COMPOSER_DEPENDENCIES=lowest
 
 before_script:
   - composer self-update
-  - travis_retry composer install ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+  - composer install --no-interaction --prefer-dist
+  - if [ "$COMPOSER_DEPENDENCIES" = "lowest" ]; then composer update --prefer-lowest --prefer-stable
   - vendor/bin/koharness
 
 script:
