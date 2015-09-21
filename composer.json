@@ -1,5 +1,5 @@
 {
-	"name":        "kohana/unittest",
+	"name":        "tscms/unittest",
 	"type":        "kohana-module",
 	"description": "PHPUnit integration for running unit tests on the Kohana framework",
 	"homepage":    "http://kohanaframework.org",
@@ -21,8 +21,7 @@
 	},
 	"require": {
 		"composer/installers": "~1.0",
-		"kohana/core":         ">=3.3",
-		"php":                 ">=5.3.3",
+		"php":                 ">=5.4",
 		"phpunit/phpunit":     "3.7.*"
 	},
     "require-dev": {
